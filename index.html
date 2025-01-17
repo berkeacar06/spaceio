@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaceio Travel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+        .home-content p {
+        color: white;
+        text-align: center;
+        margin-top: 0;
+        }
+
+        .destination, .crew, .technology {
+            margin: 20px 0;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            transition: transform 0.1s;
+        }
+
+        img:hover {
+            transform: rotate(2deg) scale(1.05);
+        }
+
+        .destination img, .technology img {
+            margin: 10px 0;
+        }
+
+        .crew img {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+
+        form {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+            width: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-family: "Mohave", sans-serif;
+            z-index: 10;
+        }
+
+        form label {
+            color: white;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+
+        .menu {
+            display: flex;
+            justify-content: flex end;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px 20px;
+
+        }
+
+        .menu a {
+            margin: 0 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: inherit;
+        }
+
+        #home {
+            display: block;
+
+            background-color: #041562;
+            background-image: url(assets/home/background-home-desktop.jpg);
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            color: dark;
+            height: 100vh;
+        }
+
+        #destinations {
+            display: none;
+            background-image: url(assets/destination/background-destination-desktop.jpg);
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            color: white;
+        }
+
+        #crew{
+            display: none;
+            background-image: url(assets/crew/background-crew-desktop.jpg);
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            color: white;
+        }
+
+        #technology {
+            display: none;
+            background-image: url(assets/technology/background-technology-desktop.jpg);
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            color: white;
+
+        }
+
+        .home-content {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+            z-index: 1;
+            width: 50%;
+            background-color: transparent;
+        }
+
+
+        home .home-content h1 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: white;
+            font-size: 70px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="home">
+        <form action="submit_form.php" method="post">
+            <label for="ad">Ad:</label>
+            <input type="text" id="ad" name="ad" required>
+            <label for="soyad">Soyad:</label>
+            <input type="text" id="soyad" name="soyad" required>
+            <label for="aktivasyon_kodu">Uzay Aktivasyon Kodu:</label>
+            <input type="text" id="aktivasyon_kodu" name="aktivasyon_kodu" required>
+            <input type="submit" value="Gönder">
+        </form>
+
+        <div class="home-content">
+            <h1>Uzay Yolculuğu</h1>
+            <p>Sevgili Spaceio travel yolcuları, benzersiz bir maceraya adım atmak üzeresiniz.
+                Lütfen giriş bilgilerinizi ve size daha önce verilen aktivasyon kodlarını giriniz!
+                Öyleyse ne duruyorsunuz? Arkanıza yaslanın ve maceranın tadını çıkarın.</p>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <a href="#home">Anasayfa</a>
+        <a href="#destinations">Rota</a>
+        <a href="#crew">Mürettebat</a>
+        <a href="#technology">Teknoloji</a>
+    </nav>
+
+    <div id="destinations">
+        <h2>Rotalar</h2>
+        <div class="destination" >
+            <h3>Ay</h3>
+            <img src="./assets/destination/image-moon.png" alt="Ay">
+            <p><strong>Açıklama:</strong> Gezegenimizi daha önce hiç görmediğiniz gibi görün. Perspektif kazanmanıza ve tazelenmiş olarak geri dönmenize yardımcı olacak mükemmel bir dinlenme gezisi. Oradayken, Luna 2 ve Apollo 11 iniş alanlarını ziyaret ederek biraz tarih öğrenin. Ay'ın yüzeyi kraterler, dağlar ve vadilerle doludur ve Dünya'dan çıplak gözle görülebilen koyu renkli "denizler" olarak adlandırılan geniş düzlükler vardır. Ay'ın ince atmosferi ve düşük yerçekimi, onu uzay araştırmaları ve gelecekteki insan yerleşimleri için ilgi çekici bir hedef haline getirir.</p>
+            <p><strong>Mesafe:</strong> 384,400 km</p>
+            <p><strong>Seyahat Süresi:</strong> 3 gün</p>
+        </div>
+
+        <div class="destination">
+            <h3>Mars</h3>
+            <img src="./assets/destination/image-mars.png" alt="Mars">
+            <p><strong>Açıklama:</strong> Yürüyüş botlarınızı yanınıza almayı unutmayın. Güneş sistemimizdeki en yüksek gezegen dağı olan Olympus Mons'a tırmanmak için onlara ihtiyacınız olacak. Everest Dağı'nın iki buçuk katı büyüklüğünde! Mars, kırmızımsı görünümü nedeniyle "Kızıl Gezegen" olarak da bilinir ve ince bir atmosfere, kutup buzullarına ve mevsimsel değişikliklere sahiptir. Mars'ta geçmişte sıvı suyun varlığına dair kanıtlar bulunmuştur ve bu da gezegenin bir zamanlar yaşamı destekleyebileceği ihtimalini artırmaktadır.</p>
+            <p><strong>Mesafe:</strong> 225 mil. km</p>
+            <p><strong>Seyahat Süresi:</strong> 9 ay</p>
+        </div>
+
+        <div class="destination">
+            <h3>Europa</h3>
+            <img src="./assets/destination/image-europa.png" alt="Europa">
+            <p><strong>Açıklama:</strong> Jüpiter'in yörüngesindeki dört Galile uydusunun en küçüğü olan Europa, kış severlerin rüyasıdır. Buzlu yüzeyiyle, biraz buz pateni, curling, hokey veya rahat kış kulübenizde dinlenmek için mükemmel bir yerdir. Europa'nın yüzeyinin altında, Dünya'nın okyanuslarından daha fazla su içeren geniş bir tuzlu su okyanusu olduğuna inanılıyor. Bu okyanus, yaşamı destekleyebilecek koşullara sahip olabilir ve bu da Europa'yı astrobiyoloji araştırmaları için önemli bir hedef haline getiriyor.</p>
+            <p><strong>Mesafe:</strong> 628 mil. km</p>
+            <p><strong>Seyahat Süresi:</strong> 3 yıl</p>
+        </div>
+
+        <div class="destination">
+            <h3>Titan</h3>
+            <img src="./assets/destination/image-titan.png" alt="Titan">
+            <p><strong>Açıklama:</strong> Dünya dışında yoğun bir atmosfere sahip olduğu bilinen tek uydu olan Titan, evinizden uzakta bir ev gibidir (sadece birkaç yüz derece daha soğuk!). Ayrıca, Satürn'ün Halkaları'nın çarpıcı manzaralarını da görebilirsiniz. Titan'ın atmosferi çoğunlukla azottan oluşur, ancak metan ve diğer organik molekülleri de içerir. Yüzeyinde metan gölleri ve denizleri vardır ve karmaşık organik kimyaya sahip olduğuna inanılmaktadır. Bu özellikler, Titan'ı Güneş Sistemi'nde yaşam arayışı için ilgi çekici bir hedef haline getirmektedir.</p>
+            <p><strong>Mesafe:</strong> 1.6 milyar km</p>
+            <p><strong>Seyahat Süresi:</strong> 7 yıl</p>
+        </div>
+    </div>
+
+    <div id="crew">
+        <h2>Mürettebat</h2>
+        <div class="crew">
+            <h3>Douglas Hurley - Kumandan(Kaptan)</h3>
+            <img src="./assets/crew/image-douglas-hurley.png" alt="Douglas Hurley">
+            <p><strong>Hakkında:</strong> Doug Hurley, Amerikalı bir mühendis, emekli bir Deniz Piyadeleri pilotu ve emekli bir NASA astronotudur. 2009 yılında STS-127 ve 2011 yılında STS-135 olmak üzere iki uzay mekiği görevinde yer aldı. Hurley, SpaceX Crew Dragon Demo-2 görevinde uzay aracı komutanı olarak görev yaptı. Bu görev, Amerikan topraklarından fırlatılan ve ticari bir mürettebat uzay aracında yörüngeye ulaşan ilk görevdi. Hurley, Birleşik Devletler Deniz Piyadeleri'nde albay rütbesine ulaştı ve 22 yıllık hizmetten sonra emekli oldu.</p>
+        </div>
+        <div class="crew">
+            <h3>Mark Shuttleworth - Görev Uzmanı</h3>
+            <img src="./assets/crew/image-mark-shuttleworth.png" alt="Mark Shuttleworth">
+            <p><strong>Hakkında:</strong> Mark Richard Shuttleworth, Güney Afrikalı bir girişimci ve 2002 yılında uzaya giden ikinci uzay turisti ve ilk Afrikalı olarak tarihe geçen kişidir.  Linux tabanlı Ubuntu işletim sisteminin arkasındaki şirket olan Canonical Ltd.'nin kurucusudur. Nisan 2002'de, Rus Soyuz uzay aracıyla Uluslararası Uzay İstasyonu'na seyahat etmek için 20 milyon dolar ödedi.  ISS'de bir hafta geçirdi ve bilimsel araştırmalara katıldı.</p>
+        </div>
+        <div class="crew">
+            <h3>Victor Glover - Pilot</h3>
+            <img src="./assets/crew/image-victor-glover.png" alt="Victor Glover">
+            <p><strong>Hakkında:</strong> Victor Glover, NASA astronotu ve ABD Donanması'nda kaptandır. Kasım 2020'de SpaceX Crew-1 görevinde Uluslararası Uzay İstasyonu'na uçtu ve Expedition 64'ün bir parçası olarak görev yaptı.  Glover, uzayda yürüyen ilk Afrikalı Amerikalı oldu. Ayrıca, ABD Donanması'nda F/A-18 Hornet pilotu olarak görev yaptı ve çeşitli uçak gemilerinde görevlendirildi.</p>
+        </div>
+        <div class="crew">
+            <h3>Anousheh Ansari - Uçuş Mühendisi</h3>
+            <img src="./assets/crew/image-anousheh-ansari.png" alt="Anousheh Ansari">
+            <p><strong>Hakkında:</strong> Anousheh Ansari, İran asıllı Amerikalı bir mühendis ve girişimcidir. Eylül 2006'da Uluslararası Uzay İstasyonu'na seyahat eden ilk kadın uzay turisti ve uzaya giden ilk İranlı oldu. Ansari, Prodea Systems adlı bir telekomünikasyon şirketinin kurucu ortağıdır. Ayrıca, X Prize Vakfı'nın yönetim kurulu üyesidir ve uzay araştırmalarını ve inovasyonunu destekleyen çeşitli diğer kuruluşlarda yer almaktadır.</p>
+        </div>
+    </div>
+
+    <div id="technology">
+        <h2>Teknoloji</h2>
+        <div class="technology">
+            <h3>Fırlatma Aracı</h3>
+            <img src="./assets/technology/image-launch-vehicle-portrait.jpg" alt="Fırlatma Aracı">
+            <p><strong>Açıklama:</strong> Bir fırlatma aracı veya taşıyıcı roket, bir yükü Dünya yüzeyinden uzaya, genellikle Dünya yörüngesine veya ötesine taşımak için kullanılan roketle çalışan bir araçtır. WEB-X taşıyıcı roketimiz, şu anda faaliyette olan en güçlü rokettir. 150 metre boyunda olup, fırlatma rampasında oldukça hayranlık uyandıran bir manzaradır! Bu araçlar, genellikle birden fazla aşamadan oluşur ve her aşama, yakıtını tükettikten sonra ayrılır ve düşer. Bu sayede roket, daha az yakıtla daha yüksek hızlara ulaşabilir. Fırlatma araçları, uyduları, uzay sondalarını ve insanlı uzay araçlarını yörüngeye yerleştirmek için kullanılır.</p>
+        </div>
+
+        <div class="technology">
+            <h3>Uzay Limanı</h3>
+            <img src="./assets/technology/image-spaceport-portrait.jpg" alt="Uzay Limanı">
+            <p><strong>Açıklama:</strong> Bir uzay limanı veya kozmodrom, gemiler için liman veya uçaklar için havaalanına benzer şekilde, uzay araçlarını fırlatmak (veya almak) için bir yerdir. Ünlü Cape Canaveral'da bulunan uzay limanımız, fırlatma için Dünya'nın dönüşünden yararlanmak için ideal bir konumdadır. Uzay limanları, fırlatma rampaları, montaj tesisleri, kontrol merkezleri ve diğer altyapı tesislerini içerir. Ayrıca, fırlatma öncesi ve sonrası işlemler için gerekli olan teknik ve lojistik desteği sağlarlar.</p>
+        </div>
+
+        <div class="technology">
+            <h3>Uzay Kapsülü</h3>
+            <img src="./assets/technology/image-space-capsule-portrait.jpg" alt="Uzay Kapsülü">
+            <p><strong>Açıklama:</strong> Bir uzay kapsülü, Dünya atmosferine kanatsız olarak yeniden girmek için künt gövdeli bir yeniden giriş kapsülü kullanan, genellikle mürettebatlı bir uzay aracıdır. Kapsülümüz, uçuş sırasında zamanınızı geçireceğiniz yerdir. Bir uzay spor salonu, sinema ve sizi eğlendirmek için birçok aktivite içerir. Uzay kapsülleri, astronotları korumak ve yaşam destek sistemlerini sağlamak için tasarlanmıştır. Ayrıca, bilimsel deneyler yapmak ve Dünya'yı gözlemlemek için de kullanılabilirler.</p>
+        </div>
+    </div>
+
+    <script>
+        const navLinks = document.querySelectorAll('nav a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                const targetId = link.getAttribute('href');
+                const homeDiv = document.getElementById('home');
+                const destinationsDiv = document.getElementById('destinations');
+                const crewDiv = document.getElementById('crew');
+                const technologyDiv = document.getElementById('technology');
+
+
+                homeDiv.style.display = 'none';
+                destinationsDiv.style.display = 'none';
+                crewDiv.style.display = 'none';
+                technologyDiv.style.display = 'none';
+
+
+                document.querySelector(targetId).style.display = 'block';
+
+
+            });
+        });
+    </script>
+</body>
+</html>
